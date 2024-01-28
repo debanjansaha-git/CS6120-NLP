@@ -44,8 +44,8 @@ This project includes the following components:
 ## Installation
 Clone the repository:
     
-    git clone https://github.com/your_username/byte_pair_encoding.git
-    cd byte_pair_encoding
+    git clone https://github.com/debanjansaha-git/CS6120-NLP.git
+    cd Assignment\ 1/byte_pair_encoding
     
 Install the required dependencies:
     

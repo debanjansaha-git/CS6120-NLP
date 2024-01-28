@@ -15,7 +15,7 @@ This project includes the following components:
 
     ├─── byte_pair_encoding/
     │    │
-    │    ├── bpe.py
+    │    └── bpe.py
     │    
     ├─── dataset/
     │    |
@@ -34,8 +34,8 @@ This project includes the following components:
     ├─── download_files.py
     ├─── train.py
     ├─── test.ipynb
-    ├─── Report.docx
-    │    
+    ├─── Report.pdf
+    └─── README.md    
 
 
 
@@ -45,7 +45,7 @@ This project includes the following components:
 Clone the repository:
     
     git clone https://github.com/debanjansaha-git/CS6120-NLP.git
-    cd Assignment\ 1/byte_pair_encoding
+    cd Assignment\ 1/Part\ 1/
     
 Install the required dependencies:
     

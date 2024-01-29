@@ -14,7 +14,6 @@ This project includes the following components:
 ## Organization
 
     ├─── byte_pair_encoding/
-    │    │
     │    └── bpe.py
     │    
     ├─── dataset/
@@ -24,20 +23,22 @@ This project includes the following components:
     │    │   ├── blake-poems.txt
     │    │   └── shakespeare-hamlet.txt
     │    │
-    │    └── test/
+    │    ├── test/
     │    │   ├── austen-emma-test.txt
     │    │   ├── blake-poems-test.txt
-    │    │   ├── shakespeare-hamlet-test.txt
+    │    │   └── shakespeare-hamlet-test.txt
     │    |
-    │    └── reference_punkt_tokens.json
+    │    ├── vocab/
+    │    │   ├── bpe_train_vocab.txt
+    │    │   ├── reference_punkt_tokens.json
+    │    │   ├── bpe_vocab_evolution.png
+    │    │   └── bpe_vocab_size_evolution.png
     │    
     ├─── download_files.py
     ├─── train.py
     ├─── test.ipynb
     ├─── Report.pdf
     └─── README.md    
-
-
 
 
 
@@ -56,24 +57,56 @@ Install the required dependencies:
     pip3 install -r requirements.txt
 
 ## Usage
-Train the BPE model:
+
+The BPE model:
 
     from bpe import BytePairEncoder
     bpe = BytePairEncoder()
     bpe.learn_bpe(text, num_merges)
 
-Evaluate the BPE algorithm:
+Train using the BPE model
 
-    python evaluate_bpe.py
+    python train.py
+
+BPE algorithm creates a vocabulary and stores it in the folder `dataset/vocab/` \
+It also stores the vocabulary evolution and the vocab size evolution in the same folder.
+
+Encode using the BPE algorithm:
+
+    encoded_text = bpe.encode(text)
+
+Decode the encoded text
+
+    decoded_text = bpe.decode(encoded_text)
+
+Evaluate on test (unseen) data
+
+    python test.py
+    ipython test.ipynb
+
+This runs the script which uses the learnt vocab from the BPE algorithm and compares it with a baseline version of NLTK's punkt tokenizer. This creates a file and stores it in `dataset/vocab/referemce_punkt_tokens.json`
 
 ## Results
 The evaluation results of the BPE algorithm compared to NLTK's default tokenizer are as follows:
 
-Accuracy: XX%
-Precision: XX
-Recall: XX
-F1 Score: XX
-Jaccard Similarity: XX
+BPE Algorithm Metrics:
+
+    Accuracy: 100.0%
+    Coverage: 100.0%
+    Precision: 1.00
+    Recall: 1.00
+    F1 Score: 1.00
+    Jaccard Similarity: 1.00
+
+Default Tokenizer Metrics:
+
+    Accuracy: 0.20%
+    Coverage: 0.10%
+    Precision: 0.00
+    Recall: 0.05
+    F1 Score: 0.00
+    Jaccard Similarity: 0.00
+
 
 ## Contributing
 Contributions are welcome! Please feel free to open issues or submit pull requests for any improvements or additional features.
